@@ -2,6 +2,12 @@
 /////////////////////////////////////////////////
 // LECTURES
 
+let arr = ['a', 'b', 'c', 'd', 'e'];
+console.log(arr.slice(2));
+
+
+
+
 const currencies = new Map([
   ['USD', 'United States dollar'],
   ['EUR', 'Euro'],
@@ -28,6 +34,23 @@ movements.forEach(function (movement, index, array) {
   }
 });
 
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+for (const [i, movement] of movements.entries()) {
+  if(movement > 0) {
+    console.log(`Movement ${i + 1}: You despostied ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+//forEach loop / callback function
+movements.forEach(function(mov, i, arr) {
+  if(mov > 0) {
+    console.log(`Movement ${i + 1}: You despostied ${mov}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
+  }
+});
+//map
 const currencies = new Map([
   ['USD', 'United States dollar'],
   ['EUR', 'Euro'],
@@ -38,8 +61,12 @@ currencies.forEach(function (value, key, map) {
   console.log(`${key}: ${value}`);
 });
 
-//set doesnt have keys or values
+//set doesnt have keys or values. key and value are the same in this code. `${key}: ${value}` Used _ as a throw away variable. 
 const currenciesUnique = new Set(['USD', 'GBO', 'USD', 'EUR']);
+console.log(currenciesUnique);
+currenciesUnique.forEach(function(value, _, map) {
+  console.log(`${_}: ${value}`);
+});
 
 ///////////////////////////////////////
 // Coding Challenge #1
@@ -62,6 +89,7 @@ const checkDogs = function (dogsJulia, dogsKate) {
 };
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
+//map method
 const eurToUsd = 1.1;
 
 const movementsUSD = movements.map(mov => mov * eurToUsd);
