@@ -89,7 +89,7 @@ const checkDogs = function (dogsJulia, dogsKate) {
 };
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
-//map method
+//map method with arrow function
 const eurToUsd = 1.1;
 
 const movementsUSD = movements.map(mov => mov * eurToUsd);
@@ -101,6 +101,8 @@ const movementsUSD = movements.map(mov => mov * eurToUsd);
 const deposits = movements.filter(function (mov) {
   return mov > 0;
 });
+
+const withdrawls = movements.filter(mov=> mov < 0 );
 
 const depositsFor = [];
 for (const mov of movements) if (mov > 0) depositsFor.push(mov);
@@ -133,9 +135,27 @@ GOOD LUCK 😀
 */
 
 const calcAverageHumanAge = function (ages) {
-  const humanAge=2 {
+  const humanAges= ages.map(age => age => 2 ? 2 * age: 16 + age * 4); 
+  const adults = humanAges.filter(age => age >= 18 )
 
-  } if dog <= 2 {humanAge * dogAge
-    console.log(dog)
-  }
+  const average = adults.reduce((acc, age) => acc + age, 0) / adults.length
+
+  return average;
 };
+const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
+const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4])
+console.log(avg1, avg2)
+
+
+//chaining methods
+const eurToUsd = 1.1;
+const totalDepositsUSD = movements
+.filter(mov => mov > 0)
+.map(mov => mov * eurToUsd)
+.reduce((acc, mov) => acc + mov, 0)
+console.log(totalDepositsUSD);
+
+//find method. Retrieve 1 element based on condition
+const firstWithdrawl = movements.find(mov => mov < 0);
+console.log(movements)
+console.log(firstWithdrawl)

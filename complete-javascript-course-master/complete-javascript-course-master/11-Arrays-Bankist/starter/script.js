@@ -78,14 +78,34 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
 
-const calcPrintBalance = function (movements) {
-  const balance = movement.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance} \u20AC EUR`;
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}€`;
 };
 
-calcDisplayBalance(account1.movemnts);
+//calcDisplayBalance(account1.movements);
+
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+  .filter(mov => mov  > 0)
+  .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`
+
+  const out = movements.filter(mov => mov < 0).reduce((acc, mov) => acc + mov, 0)
+  labelSumOut.textContent = `${Math.abs(out)}€`
+
+  const interest = movements 
+  .filter(mov => mov  > 0) 
+  .map(deposit => (deposit * 1.2)/100)
+  .filter((int, i, arr) =>  {
+    return int >= 1;
+  })
+  .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}€`
+};
+
+//login
 
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -99,3 +119,35 @@ const createUsernames = function (accs) {
 
 createUsernames(accounts);
 console.log(accounts);
+
+
+//event handlers
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  //prevents form from submitting
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if(currentAccount?.pin === Number(inputLoginPin.value)) {
+
+    //display welcome message, updated ui
+    labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]
+
+    }`;
+    containerApp.style.opacity = 100;
+
+    //display movements
+    displayMovements(currentAccount.movements);
+    //display balance
+    calcDisplayBalance(currentAccount.movements);
+  
+    //display summary
+    calcDisplaySummary(currentAccount.movements);
+  }
+
+});
