@@ -301,5 +301,5 @@ btnSort.addEventListener('click', function (e) {
 
 //Timers
 //setTimeout(() => console.log('Here is your pizza'), 3000);//pass in your second argument which is the seconds or timer /Asynchronous JS
-setInterval
+//setInterval
 
