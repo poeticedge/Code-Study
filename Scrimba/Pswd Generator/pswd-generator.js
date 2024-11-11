@@ -96,7 +96,7 @@ let passwordOne = document.getElementById("pswd-one");
 let passwordTwo = document.getElementById("pswd-two");
 let passwordLength = 15;
 const pswdBtn = document.getElementById("make-pswd");
-const pswdContainers = document.createElement("generatedPassword");
+//const pswdContainers = document.createElement("generatedPassword");
 
 function generatePswd() {
   for (let j = 1; j <= 2; j++) {
@@ -105,25 +105,21 @@ function generatePswd() {
       const randomPswd = Math.floor(Math.random() * characters.length);
       password += characters[(randomPswd, randomPswd + 1)];
     }
-
-    //return password
-    //document.getElementById(pswdContainers).innerHTML = password;
-
-    console.log(password); //this function is working. Is showing undefined every few passwords. Will investegate.
-    passwordOne.textContent = password;
-    passwordTwo.textContent = password; //rendering but passwordTwo is rendering the same as 1?
-    pswdContainers.innerHTML = password;
+    //do I need to store the 2 passwords?
+    console.log(password); //this is working, occasional undefined.
+    passwordOne.innerHTML = password; //both are rendering pswd 1.
+    passwordTwo.innerHTML = password;
   }
 }
+pswdBtn.addEventListener("click", generatePswd);
 
-function renderPswd() {
-  let result = generatePswd();
-  let finalResult = document.getElementById("pswd-one", "pswd-two"); //Need 2 final results and render into innerHTML
+//function renderPswd() {
+// let result = generatePswd();
+// let finalResult = document.getElementById("pswd-one", "pswd-two"); //Need 2 final results and render into innerHTML
 
-  finalResult.value = result;
-}
+// finalResult.value = result;
+//}
 
-pswdBtn.addEventListener("click", renderPswd); // or is it generatePswd renderPswd?
 //let div = document.createElement("div")
 //div.append("Some text")
 
@@ -155,8 +151,3 @@ pswdBtn.addEventListener("click", renderPswd); // or is it generatePswd renderPs
 //alert("Copied to clipboard");
 //});
 //}
-
-//const generatePasswordBtn = document.querySelector('.generate-passwords-btn')
-//const displayPasswords = document.querySelector('.display-passwords-container')
-//const displayPassword =document.querySelectorAll('.pw-display')
-//const changePasswordLength = document.querySelector('.change-password-length')

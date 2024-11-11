@@ -64,4 +64,5 @@ button:focus {
 .generatedPassword {
   width: 100%;
   color: #1c1c1c;
+  padding: 10px 16px;
 }
