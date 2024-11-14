@@ -105,7 +105,7 @@ function generatePswd() {
       const randomPswd = Math.floor(Math.random() * characters.length);
       password += characters[(randomPswd, randomPswd + 1)];
     }
-    //do I need to store the 2 passwords?
+    //do I need to store the 2 passwords? ANother function for results = password (pass1, pass2).innerHTML let result = randomPswd, randomPswd2).innerthml
     console.log(password); //this is working, occasional undefined.
     passwordOne.innerHTML = password; //both are rendering pswd 1.
     passwordTwo.innerHTML = password;
