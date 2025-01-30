@@ -116,11 +116,13 @@ headerObserver.observe(header);
 
 //revealing sections on scroll
 const allSections = document.querySelectorAll('.section');
+
 const revealSection = function (entries, observer) {
-  const [entry] = entries;
-  if (!entry.isIntersecting) return;
-  entry.target.classList.remove('section--hidden');
-  observer.unobserve(entry.target);
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.remove('section--hidden');
+    observer.unobserve(entry.target);
+  });
 };
 
 const sectionObserver = new IntersectionObserver(revealSection, {
@@ -151,3 +153,49 @@ const imgObserver = new IntersectionObserver(loadImg, {
   rootMargin: '200px',
 });
 imgTargets.forEach(img => imgObserver.observe(img));
+
+//Slider component
+
+//1 side by side
+const slides = document.querySelectorAll('.slide');
+const btnLeft = document.querySelector('slider__btn--left');
+const btnRight = document.querySelector('slider__btn--right');
+let curSlide = 0;
+const maxSlide = slides.length;
+
+const slider = document.querySelector('.slider');
+slider.style.transform = 'scale(0.6) translateX(-800px)';
+slider.style.overflow = 'visible';
+
+slides.forEach((s, i) => (s.style.transform = `translateX(${100 * i}%)`)); //0, 100% 200%
+
+const goToSlide = function (slide) {
+  slides.forEach(
+    (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+  );
+};
+
+goToSlide(0);
+
+//next slide
+const nextSlide = function () {
+  if (curSlide === maxSlide - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+  goToSlide(curSlide);
+};
+
+const prevSlide = function () {
+  if (curSlide === 0) {
+    surSlide = maxSlide - 1;
+  } else {
+    curSlide--;
+  }
+
+  goToSlide(curSlide);
+};
+//event listener not working. Thinking there is a syntax error at the top of this block
+btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', prevSlide);
