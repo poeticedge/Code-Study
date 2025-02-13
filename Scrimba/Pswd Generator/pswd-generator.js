@@ -96,36 +96,24 @@ let passwordOne = document.getElementById("pswd-one");
 let passwordTwo = document.getElementById("pswd-two");
 let passwordLength = 15;
 const pswdBtn = document.getElementById("make-pswd");
-const pswdContainers = document.createElement("generatedPassword");
+//const pswdContainers = document.createElement("generatedPassword");
 
 function generatePswd() {
-  for (let j = 1; j <= 2; j++) {
-    let password = "";
-    for (let i = 0; i <= passwordLength; i++) {
-      const randomPswd = Math.floor(Math.random() * characters.length);
-      password += characters[(randomPswd, randomPswd + 1)];
-    }
+  let password1 = "";
+  let password2 = "";
 
-    //return password
-    //document.getElementById(pswdContainers).innerHTML = password;
-
-    console.log(password); //this function is working. Is showing undefined every few passwords. Will investegate.
-    passwordOne.textContent = password;
-    passwordTwo.textContent = password; //rendering but passwordTwo is rendering the same as 1?
-    pswdContainers.innerHTML = password;
+  for (let i = 0; i < passwordLength; i++) {
+    const randomPswd1 = Math.floor(Math.random() * characters.length);
+    const randomPswd2 = Math.floor(Math.random() * characters.length);
+    password1 += characters[randomPswd1];
+    password2 += characters[randomPswd2];
   }
+  console.log(password1, password2);
+  passwordOne.innerHTML = password1;
+  passwordTwo.innerHTML = password2;
 }
 
-function renderPswd() {
-  let result = generatePswd();
-  let finalResult = document.getElementById("pswd-one", "pswd-two"); //Need 2 final results and render into innerHTML
-
-  finalResult.value = result;
-}
-
-pswdBtn.addEventListener("click", renderPswd); // or is it generatePswd renderPswd?
-//let div = document.createElement("div")
-//div.append("Some text")
+pswdBtn.addEventListener("click", generatePswd);
 
 //stretch goal-copy to clipboard
 //function copyPassword() {
@@ -134,29 +122,9 @@ pswdBtn.addEventListener("click", renderPswd); // or is it generatePswd renderPs
 //document.execCommand("copy");
 //}
 
-//function getGeneratePassword() {
-// Displays the message in the messageEl using messageEl.textContent
-//passwordOne.innerHTML = `<input type="text" id="1" value="${generatePswd()}" onclick="copyToClipboard(1)" />/readonly>
-// `;
-// passwordTwo.innerHTML = `<input type="text" id="2" value="${generatePswd()}" onclick="copyToClipboard(2)" readonly>
-//`;
-// Call changeColorPasswords() function
-// changeColorPasswords();
-//  }
-
-//stretch goal is to copy to clipboard
-
-// Creates a function copyToClipboard() that copies selected password just clicking on hit
-//function copyToClipboard(index) {
-//const copyText = document.getElementById(index).value;
-//navigator.clipboard.writeText(copyText).then(() => {
-// Alert the user that the action took place.
-// Nobody likes hidden stuff being done under the hood!
-//alert("Copied to clipboard");
-//});
-//}
-
-//const generatePasswordBtn = document.querySelector('.generate-passwords-btn')
-//const displayPasswords = document.querySelector('.display-passwords-container')
-//const displayPassword =document.querySelectorAll('.pw-display')
-//const changePasswordLength = document.querySelector('.change-password-length')
+function copyText(index) {
+  let copyText = document.getElementById(generatePswd1);
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied to clipboard");
+}
