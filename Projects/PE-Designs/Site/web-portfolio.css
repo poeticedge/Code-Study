@@ -607,6 +607,14 @@ Javascript page
   margin: 10px auto;
 }
 
+.column1 {
+  padding: 30px 70px;
+}
+
+.column2 {
+  padding: 30px 70px;
+}
+
 @font-face {
   font-family: "Digital Display";
   src: url("https://design.poeticedge.com/Digital-Display.woff2")
