@@ -738,7 +738,7 @@ Javascript page
   color: #c4b5fd;
 }
 
-button {
+.password-section button {
   background-color: #c4b5fd;
   color: #fff;
   text-shadow: black 0px 0px 2px;
@@ -750,8 +750,8 @@ button {
   cursor: pointer;
 }
 
-button:hover,
-button:focus {
+.password-section button:hover,
+.password-section button:focus {
   background-color: #7d44aa;
 }
 
