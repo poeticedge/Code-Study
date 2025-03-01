@@ -598,7 +598,7 @@ snapone page
 /*====================
 Javascript page
 =====================*/
-.basketball-row {
+.row {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -607,7 +607,8 @@ Javascript page
   margin: 10px auto;
 }
 
-.column1 {
+.basketball-section .column1,
+.password-section .column1 {
   padding: 30px 70px;
 }
 
@@ -677,15 +678,6 @@ Javascript page
   margin: 10px 5px;
 }
 
-.blackjack-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 350px;
-  margin: 10px auto;
-}
-
 .blackjack-section .container {
   justify-content: space-around;
   background-color: #016f32;
@@ -713,10 +705,10 @@ Javascript page
   font-weight: bold;
   border: none;
   color: #016f32;
-  margin: 4px 0;
+  margin: 20px 15px;
 }
 
-.banner-container {
+.password-section .banner-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -726,7 +718,7 @@ Javascript page
   margin: auto;
 }
 
-.banner-container .banner {
+.password-section .banner-container .banner {
   background: #273549;
   margin: 10px;
   display: block;
@@ -736,13 +728,13 @@ Javascript page
   width: 80%;
 }
 
-.banner-container .banner .content {
+.password-section .banner-container .banner .content {
   color: #fff;
   padding: 40px;
   border-bottom: 2px solid #c4b5fd;
 }
 
-.banner-container .banner span {
+.password-section .banner-container .banner span {
   color: #c4b5fd;
 }
 
