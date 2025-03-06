@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banner Builder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Banner Builder</h2>
+
+      <!-- Banner Customization Form -->
+      <form id="banner-form">
+        <select id="bannerSize">
+          <option value="712x200">List View (712x200)</option>
+          <option value="702x300">Authenticated</option>
+          <option value="1025x300">Full Width (1025x300)</option>
+          <option value="300x300">One Third</option>
+          <option value="400x100">Cart</option>
+        </select>
+
+        <label>Background Image:</label>
+        <input type="text" id="imageUrl" placeholder="Enter image URL" />
+
+        <label>Banner Head</label>
+        <input type="text" id="bannerHeaderText" placeholder="Enter text" />
+        <label>Text Color:</label>
+        <select id="textColor">
+          <option value="#000000">Black</option>
+          <option value="#ffffff">White</option>
+        </select>
+        <label>Text Size:</label>
+        <select id="textSize">
+          <option value="3.5rem">3.5rem</option>
+          <option value="2.7rem">2.7rem</option>
+        </select>
+
+        <label>Sub line</label>
+        <input type="text" id="bannerSublineText" placeholder="Enter text" />
+
+        <label>Text Color:</label>
+        <select id="textColor">
+          <option value="#000000">Black</option>
+          <option value="#ffffff">White</option>
+        </select>
+        <label>Text Size:</label>
+        <select id="textSize">
+          <option value="16px">Small</option>
+          <option value="24px">Medium</option>
+          <option value="32px">Large</option>
+        </select>
+
+        <button type="button" id="generate">Banner Preview</button>
+        <button type="button" id="export">Generate HTML & CSS</button>
+        <!-- Copy HTML Button -->
+        <button type="button" id="copyHtml">Copy HTML</button>
+      </form>
+
+      <!-- Banner Preview -->
+      <div id="banner-preview">
+        <div id="banner" class="banner"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
