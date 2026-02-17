@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style></style>
+  <body>
+    <h1 id="dealerName"></h1>
+    <ul></ul>
+    <!--Render lists here-->
+
+    <script>
+      // async function getData() {
+      //   const url =
+      //     "https://dealerlocator.azure-api.net/v1/DealerLocator/LocateDealers?City=&country=&distance=&State=&PremierOnly=&Dealer=JLD&LineNum=&Latitude=&Longitude=&LowerLimit=1&UpperLimit=25&IsCertifiedShowroom=";
+      //   try {
+      //     const response = await fetch(url);
+      //     if (!response.ok) {
+      //       throw new Error(`Response status: ${response.status}`);
+      //     }
+      //     const result = await response.json();
+      //     const { dealerName, country, state } = result[0];
+      //     console.log(dealerName, country, state);
+      //     // We need to add the dom manipulation here
+      //     document.getElementById("dealerName").innerHTML =
+      //       result[0].dealerName;
+      //     document.getElementById("country").innerHTML = result[0].country;
+      //     document.getElementById("state").innerHTML = result[0].state;
+      //     //insertadjacentHTML('beforeend', `<li>${dealerName} - ${city}, ${state}</li>`);
+      //     console.error(error.message);
+      //   } catch (error) {
+      //     console.log(error); //figure out error handling later
+      //   }
+      // }
+
+      //const markup = `<li>${dealerName} - ${city}, ${state}</li>`; insertAdjacentHTML(
+      //"beforeend",
+      //  markup
+      // );
+
+      //getData(); // asking JS to render the code
+
+      // Albertos
+      // async function getData() {
+      //   const url =
+      //     "https://dealerlocator.azure-api.net/v1/DealerLocator/LocateDealers?City=&country=&distance=&State=&PremierOnly=&Dealer=JLD&LineNum=&Latitude=&Longitude=&LowerLimit=1&UpperLimit=25&IsCertifiedShowroom=";
+      //   try {
+      //     const response = await fetch(url);
+      //     if (!response.ok) {
+      //       throw new Error(`Response status: ${response.status}`);
+      //     }
+
+      //     const result = await response.json();
+      //     console.log(result);
+      //     document.getElementById("dealerName").innerHTML =
+      //       result[0].dealerName;
+      //     document.getElementById("email").innerHTML = result[0].address;
+      //   } catch (error) {
+      //     console.error(error.message);
+      //   }
+      // }
+
+      // getData(); // asking JS to render the code
+
+      async function getData() {
+        const url =
+          "https://dealerlocator.azure-api.net/v1/DealerLocator/LocateDealers?City=&country=&distance=&State=&PremierOnly=&Dealer=JLD&LineNum=&Latitude=&Longitude=&LowerLimit=1&UpperLimit=25&IsCertifiedShowroom=";
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+          }
+
+          const result = await response.json();
+          console.log("Full API Response:", result);
+          console.log("First dealer object:", result[0]);
+
+          document.getElementById("dealerName").innerHTML =
+            result[0].dealerName;
+          const ulElement = document.querySelector("ul");
+          if (ulElement) {
+            result.forEach((dealer) => {
+              const { line1, city, stateProvince, postalCode, country } =
+                dealer.address;
+              const markup = `<li>${line1}, ${city}, ${stateProvince} ${postalCode} ${country}</li>`;
+              ulElement.insertAdjacentHTML("beforeend", markup);
+            });
+          } else {
+            console.error("UL element not found");
+          }
+        } catch (error) {
+          console.error(error.message);
+        }
+      }
+      getData(); // asking JS to render the code
+    </script>
+  </body>
+</html>
