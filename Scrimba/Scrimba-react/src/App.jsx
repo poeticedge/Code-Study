@@ -25,6 +25,7 @@ function App() {
           <li>Has well over 200K stars on GitHub</li>
           <li>Is maintained by Meta</li>
           <li>Powers thousands of enterprise apps, including mobile apps</li>
+          <li>test</li>
         </ul>
         <img
           src="https://res.cloudinary.com/control4/image/upload/v1771444024/06e12c91-7e08-4796-b2bc-b56e5d62972a/reactjs-icon_2.png"
