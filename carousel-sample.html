@@ -1,0 +1,82 @@
+<style>
+.carousel {
+		width: auto;
+		height: 200px;
+		border-radius: 35px;
+		margin: 30px 0px;
+		padding: 6px;
+		background: transparent linear-gradient(127deg, #49B44F 0%, #065BB1 100%) 0% 0% no-repeat padding-box;
+	}
+	.ovrc-quote {
+		background: #FFFFFF 0% 0% no-repeat padding-box;
+		border-radius: 30px;
+		height: 185px;
+		padding: 45px 0px;
+	}
+	.ovrc-quote q, .ovrc-quote p {
+		font-size: 3rem;
+	}
+	.dot-container {
+		text-align: center;
+  		padding: 20px;
+  		background: white;
+	}
+	.dot {
+		background: #0066CC 0% 0% no-repeat padding-box;
+		opacity: 1;
+	}
+	
+	</style>	
+
+<!-- Quote Carousel -->
+<div class="row-fluid">
+	<div class="span12 center">
+		<div class="carousel">
+			<div class="ovrc-quote"><q>Holy smokes, this is amazing! I love this new software.</q>
+			<p>- Todd P.</p>
+			</div>		
+			<div class="ovrc-quote"><q>Faster navigation through both the mobile app and web UI has greatly improved the user experience.</q>
+			<p> -Ron I.</p>
+			</div>
+			<div class="ovrc-quote"><q>This new platform will allow dealers everywhere to grow their RMR business and take better care of their clients! </q>
+			<p>-Ron W.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Dots/bullets/indicators -->
+<div class="dot-container">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+<!-- END Quote Carousel -->
+
+Javascript
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}

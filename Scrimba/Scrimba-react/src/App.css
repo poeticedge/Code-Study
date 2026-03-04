@@ -22,10 +22,18 @@ ul {
   list-style: none;
 }
 
-li::before {
+.facts-list > li::before {
   content: "• ";
   color: #61dafb;
   font-size: 1.5rem;
+}
+.facts-list {
+  margin-top: 46px;
+  max-width: 400px;
+}
+
+.facts-list > li {
+  padding-block: 10px;
 }
 
 .card {
