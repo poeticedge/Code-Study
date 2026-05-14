@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+.container {
+  width: 800px;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+input,
+button {
+  padding: 8px;
+}
+#banner-preview {
+  margin-top: 20px;
+  text-align: center;
+}
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+#imageUrl {
+  background-image: url("/wcsstore/ExtendedSitesCatalogAssetStore/attachments/images/Banners/544_24_Triad-IC-IW-LCR-Speakers_CatBanner_notext.png");
+}
