@@ -53,16 +53,19 @@ button:focus {
 
 .pswd-containers {
   display: flex;
-  justify-content: space-between;
-  gap: 2em;
-  margin-top: 3em;
-  background: #c4b5fd;
-  border-radius: 4px;
+  justify-content: center;
+  gap: 1.5em;
+  margin: 2em 1em;
+  flex-wrap: nowrap;
   height: 35px;
+  align-items: center;
 }
 
 .generatedPassword {
   width: 100%;
   color: #1c1c1c;
+  background: #c4b5fd;
+  border-radius: 4px;
   padding: 10px 16px;
+  height: 15px;
 }

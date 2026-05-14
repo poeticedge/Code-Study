@@ -99,29 +99,21 @@ const pswdBtn = document.getElementById("make-pswd");
 //const pswdContainers = document.createElement("generatedPassword");
 
 function generatePswd() {
-  for (let j = 1; j <= 2; j++) {
-    let password = "";
-    for (let i = 0; i <= passwordLength; i++) {
-      const randomPswd = Math.floor(Math.random() * characters.length);
-      password += characters[(randomPswd, randomPswd + 1)];
-    }
-    //do I need to store the 2 passwords? ANother function for results = password (pass1, pass2).innerHTML let result = randomPswd, randomPswd2).innerthml
-    console.log(password); //this is working, occasional undefined.
-    passwordOne.innerHTML = password; //both are rendering pswd 1.
-    passwordTwo.innerHTML = password;
+  let password1 = "";
+  let password2 = "";
+
+  for (let i = 0; i < passwordLength; i++) {
+    const randomPswd1 = Math.floor(Math.random() * characters.length);
+    const randomPswd2 = Math.floor(Math.random() * characters.length);
+    password1 += characters[randomPswd1];
+    password2 += characters[randomPswd2];
   }
+  console.log(password1, password2);
+  passwordOne.innerHTML = password1;
+  passwordTwo.innerHTML = password2;
 }
+
 pswdBtn.addEventListener("click", generatePswd);
-
-//function renderPswd() {
-// let result = generatePswd();
-// let finalResult = document.getElementById("pswd-one", "pswd-two"); //Need 2 final results and render into innerHTML
-
-// finalResult.value = result;
-//}
-
-//let div = document.createElement("div")
-//div.append("Some text")
 
 //stretch goal-copy to clipboard
 //function copyPassword() {
@@ -130,24 +122,9 @@ pswdBtn.addEventListener("click", generatePswd);
 //document.execCommand("copy");
 //}
 
-//function getGeneratePassword() {
-// Displays the message in the messageEl using messageEl.textContent
-//passwordOne.innerHTML = `<input type="text" id="1" value="${generatePswd()}" onclick="copyToClipboard(1)" />/readonly>
-// `;
-// passwordTwo.innerHTML = `<input type="text" id="2" value="${generatePswd()}" onclick="copyToClipboard(2)" readonly>
-//`;
-// Call changeColorPasswords() function
-// changeColorPasswords();
-//  }
-
-//stretch goal is to copy to clipboard
-
-// Creates a function copyToClipboard() that copies selected password just clicking on hit
-//function copyToClipboard(index) {
-//const copyText = document.getElementById(index).value;
-//navigator.clipboard.writeText(copyText).then(() => {
-// Alert the user that the action took place.
-// Nobody likes hidden stuff being done under the hood!
-//alert("Copied to clipboard");
-//});
-//}
+function copyText(index) {
+  let copyText = document.getElementById(generatePswd1);
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied to clipboard");
+}
