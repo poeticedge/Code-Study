@@ -1,8 +1,4 @@
-//import { createRoot } from "react-dom/client";
-//const root = createRoot(document.getElementById("root"));
-export default function Header() {}
-
-function Header() {
+export default function Header() {
   return (
     <header>
       <svg className="icon" role="presentation" aria-hidden="true">
@@ -12,5 +8,3 @@ function Header() {
     </header>
   );
 }
-
-root.render(<Header />);

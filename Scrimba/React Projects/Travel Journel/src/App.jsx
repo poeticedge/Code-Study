@@ -1,12 +1,16 @@
-//import { useState } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App";
+import Header from "./components/header";
+import Entry from "./components/entry";
 //import reactLogo from './assets/react.svg'
 //import viteLogo from './assets/vite.svg'
 //import heroImg from './assets/hero.png'
 //import Header from "./components/header";
-import "./App.css";
+//import "./App.css";
 
 export default function App() {
-  return <h1>I'm the App component!</h1>;
+  return (
+    <div>
+      <Header />
+      <Entry />
+    </div>
+  );
 }
